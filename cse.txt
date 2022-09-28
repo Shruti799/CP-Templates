@@ -2,4 +2,64 @@ Hello Github
 This is Shruti
 Learning basic Git commands
 Learning everything about Git and Github
+include<iostream>
+#include<vector>
+#include<string>
+#include<math.h>
+#include<algorithm>
+#include<set>
+using namespace std;
+
+#define gc getchar_unlocked
+#define PI 3.1415926535897932384626
+#define f first
+#define s second
+#define pb push_back#
+#define pp pop_back
+#define mp make_pair
+
+typedef long long ll;
+typedef set<int> si;
+typedef vector<int> vi;
+typedef pair<int,int> pi;
+typedef pair<ll, ll>	pl;
+typedef vector<ll>		vl;
+typedef vector<pi>		vpi;
+typedef vector<pl>		vpl;
+typedef vector<vi>		vvi;
+typedef vector<vl>		vvl;
+
+//A set cannot have duplicate elements.
+
+ll gcd( ll a, ll b)
+{
+  if (b == 0)
+    return a;
+  return gcd(b, a % b);
+}
+
+ll lcm(ll a, ll b)
+{
+    return (a / gcd(a, b)) * b;
+}
+
+int dp[100];
+int fb(int n){
+  if((n==1)||(n==2)){
+    return 1;
+  }
+  if(dp[n]!=-1){
+    return dp[n];
+  }
+  return dp[n]=fb(n-1)+fb(n-2);
+}
+
+  
+int main(){
+  ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+  cout<<"Hello World"<<endl;
+    
+
+  return 0; 
+}
 
