@@ -1,5 +1,5 @@
 Hello Github
-This is Shruti
+
 Learning basic Git commands
 Learning everything about Git and Github
 include<iostream>
