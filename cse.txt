@@ -1,65 +1,94 @@
-Hello Github
+CP Template
 
-Learning basic Git commands
-Learning everything about Git and Github
-include<iostream>
-#include<vector>
-#include<string>
-#include<math.h>
-#include<algorithm>
-#include<set>
+#include<bits/stdc++.h>
 using namespace std;
 
-#define gc getchar_unlocked
-#define PI 3.1415926535897932384626
+const int N1 = (int)2e5 + 100;
+#define PI 3.14159265358979323846264338327
+#define forn for(i=0;i<n;i++)
+#define fornn for(i=1;i<=n;i++)
+#define all(x) (x).begin(), (x).end()
 #define f first
 #define s second
-#define pb push_back#
+#define pb push_back
 #define pp pop_back
 #define mp make_pair
-
+#define yes cout<<"YES"<<'\n';
+#define no  cout<<"NO"<<'\n';
+#define one  cout<<-1<<'\n';
+#define nl  '\n';
 typedef long long ll;
-typedef set<int> si;
-typedef vector<int> vi;
-typedef pair<int,int> pi;
-typedef pair<ll, ll>	pl;
-typedef vector<ll>		vl;
-typedef vector<pi>		vpi;
-typedef vector<pl>		vpl;
-typedef vector<vi>		vvi;
-typedef vector<vl>		vvl;
+typedef set<ll> si;
+typedef set<char> sc;
+typedef vector<ll> vi;
+typedef priority_queue<ll> pri;
+typedef vector<char> vc;
+typedef pair<ll,ll> pi;
+typedef vector<pi>	vpi;
+typedef vector<vi>	vvi;
+typedef vector<string> vs;
+const ll M = 1e9+7;
+#define N  10000002
 
-//A set cannot have duplicate elements.
-
-ll gcd( ll a, ll b)
-{
-  if (b == 0)
-    return a;
-  return gcd(b, a % b);
+ll spf[N];
+void sieve(){spf[1] = 1;
+    for (int i = 2; i < N; i++) spf[i] = i;
+    for (int i = 4; i < N; i += 2) spf[i] = 2;
+    for (int i = 3; i * i < N; i++) {
+       if (spf[i] == i){for(int j = i * i; j < N; j += i)if (spf[j] == j)spf[j] = i; }}  
 }
+vi fact(ll x){vi ret;while (x != 1){ret.push_back(spf[x]);x = x / spf[x];}return ret;}
+ll gcd( ll a, ll b){if(b == 0){return a;} return gcd(b, a % b);}
+ll lcm(ll a, ll b){return (a / gcd(a, b)) * b;}
+bool pali(string s){string r=s;reverse(all(r));if(r==s){return 1;}else{return 0;}}
+bool prime(ll n){if(n <= 1){return 0;}if (n == 2 || n == 3){return 1;}if(n % 2 == 0 || n % 3 == 0){return 0;}
+    for (int i = 5; i * i <= n; i = i + 6){if (n % i == 0 || n % (i + 2) == 0)return 0;}return 1;}
+bool sub(vi &res, string &s)
+{int n = res.size(), m = s.length();int i = 0, j = 0;while (i < n && j < m){if(res[i] == s[j]-'0'){i++;}j++;}return i == n;}
 
-ll lcm(ll a, ll b)
-{
-    return (a / gcd(a, b)) * b;
-}
 
-int dp[100];
-int fb(int n){
-  if((n==1)||(n==2)){
-    return 1;
-  }
-  if(dp[n]!=-1){
-    return dp[n];
-  }
-  return dp[n]=fb(n-1)+fb(n-2);
-}
+// gcd of array a = gcd(a[0],a[1]-a[0],a[2]-a[0],........)
+// Number of triplets for a given segment (l,r) is the summation of (j-i)*(j-i-1)/2 for (l,r) range
+// Max subarray sum -> forn{sum+=a[i];if(mx<sum){mx=sum;}if(sum<0){sum=0;}} cout<<mx<<nl
+// Convert number into binary -> cout<<bitset<8>(x)<<nl
+// a<<b is equal to a.2^b and a>>b is equal to floor of a/2^b
+// Check if any bit in x is on(equal to 1) or not -> for(int i = 0; (1 << i) <= x; i++) if(x & (1 << i)) cout << i << " ";
+// either sum or difference of coordinates of all points on diagonal are equal 
 
-  
-int main(){
-  ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-  cout<<"Hello World"<<endl;
-    
 
-  return 0; 
-}
+// C++ STL 
+// vi v; or si s;
+// for(auto it=v.begin();it!=v.end();it++){cout<<*it;}
+// for(auto &value: v){cout<<value;}
+// 'auto' automatically recognizes data type of variable
+// for pairs, p.first and p.second is used to access elements.
+// for sets,s.insert() is used to insert values.
+// multiset<int> s; It can store duplicate elements.
+// unordered_set s; It stores elements in unordered mannner.
+// A set cannot have duplicate elements.
+
+// stack<int> s; s.push(int); cout<<s.top; s.pop(); (Last in first out)
+// queue<int> q; q.push(int); cout<<q.first; q.pop(); (First in first out)
+
+// Inbuilt functions in c++
+// sort(a,a+n); *max_element(a,a+n); *min_element(a,a+n); count(a,a+n,int); find(a,a+n,int); 
+// accumulate(a,a+n,0); reverse(a,a+n);
+
+// Map:-
+// map stores key,value pairs where key and value can be any data type and even containers
+// map<int,string> m;
+// m[key] = value;
+// auto it = m.find(value);
+// m.insert({1,"abc"});
+// auto it = m.find(value);
+// map<int,vi> m;
+// m[int].pb(vi);
+// for(auto &pr :m){cout<<pr.f<<" "<<pr.s;}, becoz two values are there inside map.
+// maps keys are printed in sorted order and its keys are unique and not duplicate.
+// unordered_map<int,string> - here keys are printed in unordered way.
+//for (auto i : s){ cout << 9 - (i - 48);}
+//a[i] = ((l - 1) / i + 1) * i
+
+
+
 
