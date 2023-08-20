@@ -74,7 +74,7 @@ bool sub(vi &res, string &s)
 // sort(a,a+n); *max_element(a,a+n); *min_element(a,a+n); count(a,a+n,int); find(a,a+n,int); 
 // accumulate(a,a+n,0); reverse(a,a+n);
 
-// Hash Map:-
+// Hash Map(unordered map):-
 // map stores key,value pairs where key and value can be any data type and even containers
 // map<int,string> m;
 // m[key] = value;
