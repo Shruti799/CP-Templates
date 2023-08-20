@@ -47,7 +47,7 @@ bool sub(vi &res, string &s)
 {int n = res.size(), m = s.length();int i = 0, j = 0;while (i < n && j < m){if(res[i] == s[j]-'0'){i++;}j++;}return i == n;}
 
 
-// gcd of array a = gcd(a[0],a[1]-a[0],a[2]-a[0],........)
+//gcd of array a = gcd(a[0],a[1]-a[0],a[2]-a[0],........)
 // Number of triplets for a given segment (l,r) is the summation of (j-i)*(j-i-1)/2 for (l,r) range
 // Max subarray sum -> forn{sum+=a[i];if(mx<sum){mx=sum;}if(sum<0){sum=0;}} cout<<mx<<nl
 // Convert number into binary -> cout<<bitset<8>(x)<<nl
