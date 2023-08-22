@@ -1,4 +1,4 @@
-CP Template 
+CP Template (Cf)
 
 #include<bits/stdc++.h>
 using namespace std;
